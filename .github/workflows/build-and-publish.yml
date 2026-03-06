@@ -25,6 +25,9 @@ jobs:
           repository: vrtmrz/livesync-bridge
           submodules: recursive
 
+      - name: Fix Dockerfile for Deno 2.x compatibility
+        run: sed -i 's/deno install -A/deno install --allow-import/' Dockerfile
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
